@@ -1,535 +1,60 @@
-<html><head><base href="https://sigmacapital.com/calculadora-interes-compuesto/"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script><script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@1.2.1"></script><style>
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #f8f9fa;
-        color: #333;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 40px 20px;
-    }
-    h1, h2, h3, h4 {
-        color: #1a5f7a;
-        margin-bottom: 20px;
-    }
-    .logo {
-        font-size: 36px;
-        font-weight: bold;
-        color: #1a5f7a;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .logo span {
-        color: #134d63;
-    }
-    .form-group {
-        margin-bottom: 20px;
-    }
-    label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: 500;
-    }
-    input[type="number"], select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 16px;
-    }
-    button {
-        background-color: #1a5f7a;
-        color: white;
-        border: none;
-        padding: 12px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        display: block;
-        margin: 20px auto;
-    }
-    button:hover {
-        background-color: #134d63;
-    }
-    .results {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 20px;
-        margin-top: 30px;
-    }
-    .chart-container {
-        position: relative;
-        height: 400px;
-        width: 100%;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-    th, td {
-        border: 1px solid #ddd;
-        padding: 12px;
-        text-align: left;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-    .toggle-buttons {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
-    .toggle-buttons button {
-        margin: 0 10px;
-    }
-    .resumen {
-        background-color: #e9ecef;
-        border-left: 5px solid #1a5f7a;
-        padding: 20px;
-        margin-top: 30px;
-    }
-    .cases-container {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 30px;
-    }
-    .case {
-        width: 48%;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 20px;
-    }
-    .zoom-buttons {
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-    }
-    .zoom-buttons button {
-        margin: 0 5px;
-        padding: 5px 10px;
-        font-size: 14px;
-    }
-</style></head><body>
-<div class="container">
-    <div class="logo">Sigma<span>Capital</span></div>
-    <h1 style="text-align: center;">Calculadora de Interés Compuesto Avanzada</h1>
-    
-    <div class="cases-container">
-        <div class="case">
-            <h2>Caso 1</h2>
-            <div class="form-group">
-                <label for="capital1">Capital inicial:</label>
-                <input type="number" id="capital1" value="1000">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Interés Compuesto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>SigmaCapital</h1>
+        <h2>Calculadora de Interés Compuesto Avanzada</h2>
+
+        <div class="cases">
+            <div class="case">
+                <h3>Caso 1</h3>
+                <label for="initial1">Capital inicial:</label>
+                <input type="number" id="initial1" value="1000">
+                <label for="rate1">Tasa de interés diaria (%):</label>
+                <input type="number" id="rate1" step="0.0001" value="0.0137">
+                <label for="years1">Años:</label>
+                <input type="number" id="years1" value="10">
+                <label for="monthly1">Aporte mensual:</label>
+                <input type="number" id="monthly1" value="100">
             </div>
-            <div class="form-group">
-                <label for="interes1">Tasa de interés diaria (%):</label>
-                <input type="number" id="interes1" value="0.0137" step="0.0001">
-            </div>
-            <div class="form-group">
-                <label for="anios1">Años:</label>
-                <input type="number" id="anios1" value="10">
-            </div>
-            <div class="form-group">
-                <label for="aporteMensual1">Aporte mensual:</label>
-                <input type="number" id="aporteMensual1" value="100">
+
+            <div class="case">
+                <h3>Caso 2</h3>
+                <label for="initial2">Capital inicial:</label>
+                <input type="number" id="initial2" value="1000">
+                <label for="rate2">Tasa de interés diaria (%):</label>
+                <input type="number" id="rate2" step="0.0001" value="0.0192">
+                <label for="years2">Años:</label>
+                <input type="number" id="years2" value="10">
+                <label for="monthly2">Aporte mensual:</label>
+                <input type="number" id="monthly2" value="150">
             </div>
         </div>
+
+        <label for="inflation">Tasa de inflación anual (%):</label>
+        <input type="number" id="inflation" value="2">
         
-        <div class="case">
-            <h2>Caso 2</h2>
-            <div class="form-group">
-                <label for="capital2">Capital inicial:</label>
-                <input type="number" id="capital2" value="1000">
-            </div>
-            <div class="form-group">
-                <label for="interes2">Tasa de interés diaria (%):</label>
-                <input type="number" id="interes2" value="0.0192" step="0.0001">
-            </div>
-            <div class="form-group">
-                <label for="anios2">Años:</label>
-                <input type="number" id="anios2" value="10">
-            </div>
-            <div class="form-group">
-                <label for="aporteMensual2">Aporte mensual:</label>
-                <input type="number" id="aporteMensual2" value="150">
-            </div>
+        <label for="displayInterval">Mostrar datos cada (meses):</label>
+        <input type="number" id="displayInterval" value="12">
+        
+        <button onclick="calculate()">Calcular</button>
+
+        <div id="results">
+            <h3>Resultados</h3>
+            <div id="case1Results"></div>
+            <div id="case2Results"></div>
+            <h3>Comparación de casos</h3>
+            <div id="comparisonResults"></div>
+            <canvas id="chart"></canvas>
         </div>
     </div>
-    
-    <div class="form-group">
-        <label for="inflacion">Tasa de inflación anual (%):</label>
-        <input type="number" id="inflacion" value="2">
-    </div>
-    <div class="form-group">
-        <label for="periodoVisualizacion">Mostrar datos cada (meses):</label>
-        <input type="number" id="periodoVisualizacion" value="12" min="1" max="120">
-    </div>
-    
-    <button id="calcular">Calcular</button>
-    
-    <div id="resultados" class="results" style="display:none;">
-        <h2>Resultados</h2>
-        <div id="resumen1"></div>
-        <div id="resumen2"></div>
-        <h3>Comparación de casos</h3>
-        <div id="comparacion"></div>
-        
-        <div class="chart-container">
-            <canvas id="graficoComparacionCanvas"></canvas>
-        </div>
-        
-        <div class="zoom-buttons">
-            <button id="zoomIn">+</button>
-            <button id="zoomOut">-</button>
-            <button id="resetZoom">Resetear Zoom</button>
-        </div>
-        
-        <div class="toggle-buttons">
-            <button id="toggleInflation">Mostrar/Ocultar Ajuste por Inflación</button>
-            <button id="toggleNoInvested">Mostrar/Ocultar Capital Sin Invertir</button>
-        </div>
-        
-        <h3>Tabla de Resultados</h3>
-        <div style="overflow-x: auto;">
-            <table id="tablaResultados">
-                <thead>
-                    <tr>
-                        <th>Período</th>
-                        <th>Capital Caso 1</th>
-                        <th>Intereses Caso 1</th>
-                        <th>Capital Caso 2</th>
-                        <th>Intereses Caso 2</th>
-                        <th>Capital Ajustado 1</th>
-                        <th>Capital Ajustado 2</th>
-                        <th>Capital Sin Invertir</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-        
-        <div class="resumen">
-            <h3>Resumen y Recomendaciones</h3>
-            <div id="resumenContenido"></div>
-        </div>
-    </div>
-</div>
 
-<script>
-let chart;
-let showInflation = false;
-let showNoInvested = false;
-
-document.getElementById('calcular').addEventListener('click', calcularYMostrarResultados);
-document.getElementById('toggleInflation').addEventListener('click', toggleInflationView);
-document.getElementById('toggleNoInvested').addEventListener('click', toggleNoInvestedView);
-document.getElementById('zoomIn').addEventListener('click', () => {
-    chart.zoom(1.1);
-});
-document.getElementById('zoomOut').addEventListener('click', () => {
-    chart.zoom(0.9);
-});
-document.getElementById('resetZoom').addEventListener('click', () => {
-    chart.resetZoom();
-});
-
-function calcularYMostrarResultados() {
-    const capital1 = parseFloat(document.getElementById('capital1').value);
-    const interes1 = parseFloat(document.getElementById('interes1').value) / 100;
-    const anios1 = parseInt(document.getElementById('anios1').value);
-    const aporteMensual1 = parseFloat(document.getElementById('aporteMensual1').value);
-
-    const capital2 = parseFloat(document.getElementById('capital2').value);
-    const interes2 = parseFloat(document.getElementById('interes2').value) / 100;
-    const anios2 = parseInt(document.getElementById('anios2').value);
-    const aporteMensual2 = parseFloat(document.getElementById('aporteMensual2').value);
-
-    const inflacion = parseFloat(document.getElementById('inflacion').value) / 100;
-    const periodoVisualizacion = parseInt(document.getElementById('periodoVisualizacion').value);
-
-    const resultado1 = calcularInteresCompuesto(capital1, interes1, anios1, aporteMensual1, inflacion);
-    const resultado2 = calcularInteresCompuesto(capital2, interes2, anios2, aporteMensual2, inflacion);
-    const resultadoSinInvertir = calcularCapitalSinInvertir(capital1, aporteMensual1, anios1, inflacion);
-    const resultadoAporte50 = calcularInteresCompuesto(capital1, interes1, anios1, capital1 * 0.5, inflacion);
-
-    mostrarResultados(resultado1, resultado2);
-    generarTabla(resultado1.detalleMensual, resultado2.detalleMensual, resultadoSinInvertir, periodoVisualizacion);
-    generarGrafico(resultado1.detalleMensual, resultado2.detalleMensual, resultadoSinInvertir, periodoVisualizacion);
-    generarResumen(resultado1, resultado2, resultadoSinInvertir, resultadoAporte50);
-    
-    document.getElementById('resultados').style.display = 'block';
-}
-
-function calcularInteresCompuesto(capital, interesDiario, anios, aporteMensual, inflacion) {
-    let capitalActual = capital;
-    const detalleMensual = [];
-    let capitalInvertido = capital;
-    
-    for (let mes = 1; mes <= anios * 12; mes++) {
-        capitalInvertido += aporteMensual;
-        
-        for (let dia = 1; dia <= 30; dia++) {
-            if (dia === 1) capitalActual += aporteMensual;
-            capitalActual *= (1 + interesDiario);
-        }
-
-        const capitalAjustado = capitalActual / Math.pow(1 + inflacion, mes / 12);
-        detalleMensual.push({
-            mes: mes,
-            capital: capitalActual,
-            intereses: capitalActual - capitalInvertido,
-            capitalAjustado: capitalAjustado,
-            capitalInvertido: capitalInvertido
-        });
-    }
-
-    const capitalFinal = capitalActual;
-    const interesesGanados = capitalFinal - capitalInvertido;
-    const capitalFinalAjustado = capitalFinal / Math.pow(1 + inflacion, anios);
-    const gananciaReal = capitalFinalAjustado - capitalInvertido;
-    const gananciaRealPorcentaje = (gananciaReal / capitalInvertido) * 100;
-
-    return {
-        capitalFinal,
-        interesesGanados,
-        capitalFinalAjustado,
-        gananciaReal,
-        gananciaRealPorcentaje,
-        detalleMensual
-    };
-}
-
-function calcularCapitalSinInvertir(capital, aporteMensual, anios, inflacion) {
-    const detalleMensual = [];
-    let capitalTotal = capital;
-
-    for (let mes = 1; mes <= anios * 12; mes++) {
-        capitalTotal += aporteMensual;
-        const capitalAjustado = capitalTotal / Math.pow(1 + inflacion, mes / 12);
-        detalleMensual.push({
-            mes: mes,
-            capital: capitalTotal,
-            capitalAjustado: capitalAjustado
-        });
-    }
-
-    return detalleMensual;
-}
-
-function mostrarResultados(resultado1, resultado2) {
-    document.getElementById('resumen1').innerHTML = `
-        <h3>Caso 1</h3>
-        <p>Capital final: ${resultado1.capitalFinal.toFixed(2)}</p>
-        <p>Intereses ganados: ${resultado1.interesesGanados.toFixed(2)}</p>
-        <p>Capital final ajustado por inflación: ${resultado1.capitalFinalAjustado.toFixed(2)}</p>
-        <p>Ganancia real: ${resultado1.gananciaReal.toFixed(2)}</p>
-        <p>Ganancia real (%): ${resultado1.gananciaRealPorcentaje.toFixed(2)}%</p>
-    `;
-
-    document.getElementById('resumen2').innerHTML = `
-        <h3>Caso 2</h3>
-        <p>Capital final: ${resultado2.capitalFinal.toFixed(2)}</p>
-        <p>Intereses ganados: ${resultado2.interesesGanados.toFixed(2)}</p>
-        <p>Capital final ajustado por inflación: ${resultado2.capitalFinalAjustado.toFixed(2)}</p>
-        <p>Ganancia real: ${resultado2.gananciaReal.toFixed(2)}</p>
-        <p>Ganancia real (%): ${resultado2.gananciaRealPorcentaje.toFixed(2)}%</p>
-    `;
-
-    const diferenciaCF = resultado2.capitalFinal - resultado1.capitalFinal;
-    const diferenciaIG = resultado2.interesesGanados - resultado1.interesesGanados;
-    const diferenciaGR = resultado2.gananciaReal - resultado1.gananciaReal;
-
-    document.getElementById('comparacion').innerHTML = `
-        <p>Diferencia en capital final: ${diferenciaCF.toFixed(2)}</p>
-        <p>Diferencia en intereses ganados: ${diferenciaIG.toFixed(2)}</p>
-        <p>Diferencia en ganancia real: ${diferenciaGR.toFixed(2)}</p>
-    `;
-}
-
-function generarTabla(detalle1, detalle2, detalleSinInvertir, periodoVisualizacion) {
-    const tabla = document.getElementById('tablaResultados').getElementsByTagName('tbody')[0];
-    tabla.innerHTML = '';
-    for (let i = 0; i < detalle1.length; i += periodoVisualizacion) {
-        const fila = tabla.insertRow();
-        fila.insertCell().textContent = `${detalle1[i].mes} meses`;
-        fila.insertCell().innerHTML = `${detalle1[i].capitalInvertido.toFixed(2)} <span style="color: #28a745;">+${detalle1[i].intereses.toFixed(2)}</span>`;
-        fila.insertCell().textContent = detalle1[i].intereses.toFixed(2);
-        fila.insertCell().innerHTML = `${detalle2[i].capitalInvertido.toFixed(2)} <span style="color: #28a745;">+${detalle2[i].intereses.toFixed(2)}</span>`;
-        fila.insertCell().textContent = detalle2[i].intereses.toFixed(2);
-        fila.insertCell().textContent = detalle1[i].capitalAjustado.toFixed(2);
-        fila.insertCell().textContent = detalle2[i].capitalAjustado.toFixed(2);
-        fila.insertCell().textContent = detalleSinInvertir[i].capital.toFixed(2);
-    }
-}
-
-function generarGrafico(detalle1, detalle2, detalleSinInvertir, periodoVisualizacion) {
-    const ctx = document.getElementById('graficoComparacionCanvas').getContext('2d');
-    if (chart) {
-        chart.destroy();
-    }
-    
-    const labels = detalle1.filter((_, index) => index % periodoVisualizacion === 0).map(d => `${d.mes} meses`);
-    
-    chart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    label: 'Capital Caso 1',
-                    data: detalle1.filter((_, index) => index % periodoVisualizacion === 0).map(d => d.capital),
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1
-                },
-                {
-                    label: 'Capital Caso 2',
-                    data: detalle2.filter((_, index) => index % periodoVisualizacion === 0).map(d => d.capital),
-                    borderColor: 'rgb(255, 99, 132)',
-                    tension: 0.1
-                },
-                {
-                    label: 'Capital Ajustado Caso 1',
-                    data: detalle1.filter((_, index) => index % periodoVisualizacion === 0).map(d => d.capitalAjustado),
-                    borderColor: 'rgb(75, 192, 192)',
-                    borderDash: [5, 5],
-                    hidden: !showInflation,
-                    tension: 0.1
-                },
-                {
-                    label: 'Capital Ajustado Caso 2',
-                    data: detalle2.filter((_, index) => index % periodoVisualizacion === 0).map(d => d.capitalAjustado),
-                    borderColor: 'rgb(255, 99, 132)',
-                    borderDash: [5, 5],
-                    hidden: !showInflation,
-                    tension: 0.1
-                },
-                {
-                    label: 'Capital Sin Invertir',
-                    data: detalleSinInvertir.filter((_, index) => index % periodoVisualizacion === 0).map(d => d.capital),
-                    borderColor: 'rgb(128, 128, 128)',
-                    hidden: !showNoInvested,
-                    tension: 0.1
-                },
-                {
-                    label: 'Capital Sin Invertir Ajustado',
-                    data: detalleSinInvertir.filter((_, index) => index % periodoVisualizacion === 0).map(d => d.capitalAjustado),
-                    borderColor: 'rgb(128, 128, 128)',
-                    borderDash: [5, 5],
-                    hidden: !showNoInvested || !showInflation,
-                    tension: 0.1
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                zoom: {
-                    pan: {
-                        enabled: true,
-                        mode: 'xy',
-                        modifierKey: 'ctrl',
-                    },
-                    zoom: {
-                        wheel: {
-                            enabled: true,
-                        },
-                        pinch: {
-                            enabled: true
-                        },
-                        mode: 'xy',
-                    }
-                },
-                title: {
-                    display: true,
-                    text: 'Comparación de crecimiento del capital',
-                    font: {
-                        size: 18
-                    }
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            let label = context.dataset.label || '';
-                            if (label) {
-                                label += ': ';
-                            }
-                            if (context.parsed.y !== null) {
-                                const dataIndex = context.dataIndex * periodoVisualizacion;
-                                if (context.datasetIndex === 0 || context.datasetIndex === 1) {
-                                    const detalle = context.datasetIndex === 0 ? detalle1[dataIndex] : detalle2[dataIndex];
-                                    label += `${detalle.capitalInvertido.toFixed(2)} + ${detalle.intereses.toFixed(2)} = ${context.parsed.y.toFixed(2)}`;
-                                } else {
-                                    label += `${context.parsed.y.toFixed(2)}`;
-                                }
-                            }
-                            return label;
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: 'Capital'
-                    }
-                },
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Período'
-                    }
-                }
-            }
-        }
-    });
-}
-
-function toggleInflationView() {
-    showInflation = !showInflation;
-    chart.data.datasets[2].hidden = !showInflation;
-    chart.data.datasets[3].hidden = !showInflation;
-    chart.data.datasets[5].hidden = !showInflation || !showNoInvested;
-    chart.update();
-}
-
-function toggleNoInvestedView() {
-    showNoInvested = !showNoInvested;
-    chart.data.datasets[4].hidden = !showNoInvested;
-    chart.data.datasets[5].hidden = !showNoInvested || !showInflation;
-    chart.update();
-}
-
-function generarResumen(resultado1, resultado2, resultadoSinInvertir, resultadoAporte50) {
-    const resumenContenido = document.getElementById('resumenContenido');
-    const mejorCaso = resultado1.gananciaReal > resultado2.gananciaReal ? "Caso 1" : "Caso 2";
-    const diferenciaGananciaReal = Math.abs(resultado1.gananciaReal - resultado2.gananciaReal);
-    const diferenciaGananciaRealPorcentaje = (diferenciaGananciaReal / Math.min(resultado1.gananciaReal, resultado2.gananciaReal)) * 100;
-
-    const capitalFinalSinInvertir = resultadoSinInvertir[resultadoSinInvertir.length - 1].capital;
-    const diferenciaConSinInvertir = resultado1.capitalFinal - capitalFinalSinInvertir;
-    const diferenciaConSinInvertirPorcentaje = (diferenciaConSinInvertir / capitalFinalSinInvertir) * 100;
-
-    const gananciaCon50 = resultadoAporte50.gananciaReal - resultado1.gananciaReal;
-    const gananciaCon50Porcentaje = (gananciaCon50 / resultado1.gananciaReal) * 100;
-
-    resumenContenido.innerHTML = `
-        <p>Basado en los cálculos realizados, el ${mejorCaso} muestra mejores resultados con una diferencia en ganancia real de ${diferenciaGananciaReal.toFixed(2)}, lo que representa un ${diferenciaGananciaRealPorcentaje.toFixed(2)}% de mejora.</p>
-        
-        <p>Comparando con no invertir, el Caso 1 genera ${diferenciaConSinInvertir.toFixed(2)} más de capital, lo que supone un incremento del ${diferenciaConSinInvertirPorcentaje.toFixed(2)}%.</p>
-        
-        <p><strong>Recomendación:</strong> Invertir mensualmente es altamente recomendable. Si se invirtiera un 50% del capital inicial mensualmente, la ganancia adicional sería de ${gananciaCon50.toFixed(2)}, lo que representa un ${gananciaCon50Porcentaje.toFixed(2)}% más de ganancia real.</p>
-        
-        <p>Recuerde que la inversión constante y disciplinada, junto con el poder del interés compuesto, puede llevar a resultados significativamente mejores a largo plazo. Sigma Capital le recomienda mantener una estrategia de inversión consistente y considerar aumentar sus aportes mensuales para maximizar sus ganancias potenciales.</p>
-    `;
-}
-</script></body></html>
+    <script src="script.js"></script>
+</body>
+</html>
